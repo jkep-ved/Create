@@ -1,0 +1,2 @@
+let result = 4 > 2
+ console.log (14 % 5)
