@@ -6,14 +6,17 @@ test('Rozetka: user can type text into search field', async ({ page }) => {
   await page.waitForLoadState('domcontentloaded');
 
   // 2. Поле пошуку (реальний стабільний локатор)
-  const searchInput = page.locator('input[name="search"]');
+  const searchInput = page.locator("//input[@data-testid='search-suggest-input']");
 
   // 3. Перевірити, що поле видно
   await expect(searchInput).toBeVisible({ timeout: 10000 });
 
+
   // 4. Ввести текст
   const query = 'iphone';
   await searchInput.fill(query);
+
+  await page.waitForTimeout(1000)
 
   // 5. Перевірити, що текст реально введений
   await expect(searchInput).toHaveValue(query);
