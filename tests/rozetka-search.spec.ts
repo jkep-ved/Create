@@ -21,3 +21,32 @@ test('Rozetka: user can type text into search field', async ({ page }) => {
   // 5. Перевірити, що текст реально введений
   await expect(searchInput).toHaveValue(query);
 });
+
+
+
+
+
+
+
+test('Перевірка сайту розетка пo крокам', async ({ page }) => {
+  
+  await page.goto('https://rozetka.com.ua/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const searchInput = page.locator("//input[@data-testid='search-suggest-input']");
+
+  await expect(searchInput).toBeVisible({ timeout: 3000 });
+
+  const query = 'телефони';
+  await searchInput.fill(query);
+
+  await expect(searchInput).toHaveValue(query);
+  
+  const searchButon = page.locator("//button[@data-testid='search-suggest-submit']");
+  await searchButon.click
+  
+  const title = page.locator("//h1[@class='catalog-heading']")
+
+await expect (title).toHaveText("Мобільні телефони");
+
+});
