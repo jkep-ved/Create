@@ -7,9 +7,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "@types/node": "^25.0.8"
+    "@types/node": "^25.0.9",
+    "dotenv": "^17.2.3"
+  },
+  "dependencies": {
+    "@types/mocha": "^10.0.10",
+    "got": "^14.6.6",
+    "mocha": "^11.7.5",
+    "ts-node": "^10.9.2"
   }
 }
